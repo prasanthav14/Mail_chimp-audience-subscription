@@ -44,9 +44,9 @@ app.post("/", (req, res) => {
   const jsondata = JSON.stringify(data);
   const options = {
     method: 'POST',
-    auth: 'prasanth:af455ce5b43119599a6d2091555d5187-us14'
+    auth: process.env.MAIL_CHIMP_API_KEY
   };
-  url = "https://us14.api.mailchimp.com/3.0/lists/1f31a61590"
+  url = process.env.MAIL_CHIMP_URL
   const request = https.request(url, options, (response) => {
     response.on('data', (d) => {
       console.log(response.statusCode)
